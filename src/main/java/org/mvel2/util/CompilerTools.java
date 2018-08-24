@@ -327,6 +327,9 @@ public class CompilerTools {
       case Operator.REGEX:
         optimizedAst.addTokenNode(new RegExMatchNode(tk, astLinkedList.nextNode(), pCtx));
         break;
+      case Operator.IN:
+        optimizedAst.addTokenNode(new Contains(astLinkedList.nextNode(),tk,  pCtx));
+        break;
       case Operator.CONTAINS:
         optimizedAst.addTokenNode(new Contains(tk, astLinkedList.nextNode(), pCtx));
         break;
@@ -423,6 +426,7 @@ public class CompilerTools {
       case Operator.AND:
       case Operator.OR:
       case Operator.CONTAINS:
+      case Operator.IN:
       case Operator.CONVERTABLE_TO:
         return Boolean.class;
 

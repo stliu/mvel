@@ -526,6 +526,9 @@ public class AbstractParser implements Parser, Serializable {
               case CONTAINS:
                 lastWasIdentifier = false;
                 return lastNode = new OperatorNode(Operator.CONTAINS, expr, st, pCtx);
+              case IN:
+                lastWasIdentifier = false;
+                return lastNode = new OperatorNode(Operator.IN, expr, st, pCtx);
 
             }
           }
@@ -2343,6 +2346,7 @@ public class AbstractParser implements Parser, Serializable {
         operatorsTable.put("instanceof", INSTANCEOF);
         operatorsTable.put("is", INSTANCEOF);
         operatorsTable.put("contains", CONTAINS);
+        operatorsTable.put("in", IN);
         operatorsTable.put("soundslike", SOUNDEX);
         operatorsTable.put("strsim", SIMILARITY);
         operatorsTable.put("convertable_to", CONVERTABLE_TO);
@@ -2359,7 +2363,7 @@ public class AbstractParser implements Parser, Serializable {
         operatorsTable.put(">>>", BW_USHIFT_RIGHT);
 
         operatorsTable.put("new", Operator.NEW);
-        operatorsTable.put("in", PROJECTION);
+//        operatorsTable.put("in", PROJECTION);
 
         operatorsTable.put("with", WITH);
 
@@ -2600,6 +2604,11 @@ public class AbstractParser implements Parser, Serializable {
 
         case CONTAINS:
           stk.push(containsCheck(stk.peek2(), stk.pop2()));
+          break;
+        case IN:
+          Object peek2 = stk.peek2();
+          Object pop2 = stk.pop2();
+          stk.push(containsCheck(pop2, peek2));
           break;
 
         case SOUNDEX:

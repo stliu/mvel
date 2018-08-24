@@ -32,4 +32,8 @@ public class MVELTest extends TestCase {
     assertEquals("?????", obj);
   }
 
+
+  public void testEvalIn() throws Exception{
+    MVEL.eval("1 in [1,2,3]");
+  }
 }

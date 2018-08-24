@@ -37,6 +37,7 @@ public class ASTBinaryTree {
         Class<?> rightType = right.getReturnType(strongTyping);
         switch (((OperatorNode)root).getOperator()) {
             case CONTAINS:
+            case IN:
             case SOUNDEX:
             case INSTANCEOF:
             case SIMILARITY:

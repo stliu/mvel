@@ -156,6 +156,8 @@ public class DebugTools {
         return "^";
       case Operator.CONTAINS:
         return "contains";
+      case Operator.IN:
+        return "in";
       case Operator.CONVERTABLE_TO:
         return "convertable_to";
       case Operator.DEC:
@@ -210,8 +212,8 @@ public class DebugTools {
         return "||";
       case Operator.POWER:
         return "**";
-      case Operator.PROJECTION:
-        return "PROJECT";
+//      case Operator.PROJECTION:
+//        return "PROJECT";
       case Operator.REGEX:
         return "REGEX";
       case Operator.RETURN:
@@ -271,6 +273,8 @@ public class DebugTools {
         return "BIT_XOR";
       case Operator.CONTAINS:
         return "CONTAINS";
+      case Operator.IN:
+        return "IN";
       case Operator.CONVERTABLE_TO:
         return "CONVERTABLE_TO";
       case Operator.DEC:
@@ -325,8 +329,8 @@ public class DebugTools {
         return "OR";
       case Operator.POWER:
         return "POWER_OF";
-      case Operator.PROJECTION:
-        return "PROJECT";
+//      case Operator.PROJECTION:
+//        return "PROJECT";
       case Operator.REGEX:
         return "REGEX";
       case Operator.RETURN:
